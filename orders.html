@@ -43,11 +43,21 @@
 
         <!-- Main Section -->
         <main class="p-6 mt-16 mb-16">
+            <!-- Add Order Button -->
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">Orders List</h3>
+                <a href="add_orders.html" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Add Order
+                </a>
+            </div>
+
             <!-- Orders Table -->
             <div class="bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-lg font-semibold mb-4">Orders List</h3>
                 <div class="overflow-x-auto">
-                    <table class="table-auto w-full text-left border-collapse">
+                    <table id="ordersTable" class="table-auto w-full text-left border-collapse">
                         <thead class="bg-gray-200">
                             <tr>
                                 <th class="px-4 py-2">Order ID</th>
@@ -66,30 +76,8 @@
                                 <td class="border px-4 py-2 text-green-500">Completed</td>
                                 <td class="border px-4 py-2">$120.00</td>
                                 <td class="border px-4 py-2">
-                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
-                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="border px-4 py-2">#1002</td>
-                                <td class="border px-4 py-2">Jane Smith</td>
-                                <td class="border px-4 py-2">2025-04-27</td>
-                                <td class="border px-4 py-2 text-yellow-500">Pending</td>
-                                <td class="border px-4 py-2">$80.00</td>
-                                <td class="border px-4 py-2">
-                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
-                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="border px-4 py-2">#1003</td>
-                                <td class="border px-4 py-2">Alice Brown</td>
-                                <td class="border px-4 py-2">2025-04-26</td>
-                                <td class="border px-4 py-2 text-red-500">Cancelled</td>
-                                <td class="border px-4 py-2">$50.00</td>
-                                <td class="border px-4 py-2">
-                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
-                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                                    <button onclick="viewOrder(this)" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
+                                    <button onclick="deleteOrder(this)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -103,6 +91,26 @@
             <p class="text-center text-gray-500 text-sm">&copy; 2025 Store Admin. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        // Function to view order details
+        function viewOrder(button) {
+            const row = button.closest('tr');
+            const orderId = row.cells[0].innerText;
+            const customer = row.cells[1].innerText;
+            const date = row.cells[2].innerText;
+            const status = row.cells[3].innerText;
+            const total = row.cells[4].innerText;
+
+            alert(`Order Details:\n\nOrder ID: ${orderId}\nCustomer: ${customer}\nDate: ${date}\nStatus: ${status}\nTotal: ${total}`);
+        }
+
+        // Function to delete an order
+        function deleteOrder(button) {
+            const row = button.closest('tr');
+            row.remove();
+        }
+    </script>
 </body>
 
 </html>
