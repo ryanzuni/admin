@@ -43,11 +43,21 @@
 
         <!-- Main Section -->
         <main class="p-6 mt-16 mb-16">
+            <!-- Add Product Button -->
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">Products List</h3>
+                <button onclick="openAddForm()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Add Product
+                </button>
+            </div>
+
             <!-- Products Table -->
             <div class="bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-lg font-semibold mb-4">Products List</h3>
                 <div class="overflow-x-auto">
-                    <table class="table-auto w-full text-left border-collapse">
+                    <table id="productsTable" class="table-auto w-full text-left border-collapse">
                         <thead class="bg-gray-200">
                             <tr>
                                 <th class="px-4 py-2">Product ID</th>
@@ -66,30 +76,8 @@
                                 <td class="border px-4 py-2">50</td>
                                 <td class="border px-4 py-2">$25.00</td>
                                 <td class="border px-4 py-2">
-                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Edit</button>
-                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="border px-4 py-2">#P002</td>
-                                <td class="border px-4 py-2">Product B</td>
-                                <td class="border px-4 py-2">Category 2</td>
-                                <td class="border px-4 py-2">30</td>
-                                <td class="border px-4 py-2">$15.00</td>
-                                <td class="border px-4 py-2">
-                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Edit</button>
-                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="border px-4 py-2">#P003</td>
-                                <td class="border px-4 py-2">Product C</td>
-                                <td class="border px-4 py-2">Category 3</td>
-                                <td class="border px-4 py-2">20</td>
-                                <td class="border px-4 py-2">$10.00</td>
-                                <td class="border px-4 py-2">
-                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Edit</button>
-                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                                    <button onclick="openEditForm(this)" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Edit</button>
+                                    <button onclick="deleteProduct(this)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -98,11 +86,113 @@
             </div>
         </main>
 
+        <!-- Add/Edit Product Form -->
+        <div id="productForm" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6 w-96">
+                <h3 id="formTitle" class="text-lg font-semibold mb-4">Add Product</h3>
+                <form id="productFormElement">
+                    <div class="mb-4">
+                        <label for="productName" class="block text-sm font-medium text-gray-700">Product Name</label>
+                        <input type="text" id="productName" name="productName" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="productCategory" class="block text-sm font-medium text-gray-700">Category</label>
+                        <input type="text" id="productCategory" name="productCategory" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="productStock" class="block text-sm font-medium text-gray-700">Stock</label>
+                        <input type="number" id="productStock" name="productStock" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="productPrice" class="block text-sm font-medium text-gray-700">Price</label>
+                        <input type="number" id="productPrice" name="productPrice" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div class="flex justify-end space-x-4">
+                        <button type="button" onclick="closeForm()" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Cancel</button>
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <!-- Footer -->
         <footer class="bg-white shadow p-4 fixed bottom-0 left-64 right-0 z-10">
             <p class="text-center text-gray-500 text-sm">&copy; 2025 Store Admin. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        let editingRow = null;
+
+        // Open Add Product Form
+        function openAddForm() {
+            document.getElementById('formTitle').innerText = 'Add Product';
+            document.getElementById('productFormElement').reset();
+            editingRow = null;
+            document.getElementById('productForm').classList.remove('hidden');
+        }
+
+        // Open Edit Product Form
+        function openEditForm(button) {
+            const row = button.closest('tr');
+            editingRow = row;
+
+            document.getElementById('formTitle').innerText = 'Edit Product';
+            document.getElementById('productName').value = row.cells[1].innerText;
+            document.getElementById('productCategory').value = row.cells[2].innerText;
+            document.getElementById('productStock').value = row.cells[3].innerText;
+            document.getElementById('productPrice').value = row.cells[4].innerText.replace('$', '');
+
+            document.getElementById('productForm').classList.remove('hidden');
+        }
+
+        // Close Form
+        function closeForm() {
+            document.getElementById('productForm').classList.add('hidden');
+        }
+
+        // Handle Form Submission
+        document.getElementById('productFormElement').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('productName').value;
+            const category = document.getElementById('productCategory').value;
+            const stock = document.getElementById('productStock').value;
+            const price = `$${parseFloat(document.getElementById('productPrice').value).toFixed(2)}`;
+
+            if (editingRow) {
+                // Update existing row
+                editingRow.cells[1].innerText = name;
+                editingRow.cells[2].innerText = category;
+                editingRow.cells[3].innerText = stock;
+                editingRow.cells[4].innerText = price;
+            } else {
+                // Add new row
+                const table = document.getElementById('productsTable').getElementsByTagName('tbody')[0];
+                const newRow = table.insertRow();
+
+                newRow.innerHTML = `
+                    <td class="border px-4 py-2">#P${Math.floor(Math.random() * 10000)}</td>
+                    <td class="border px-4 py-2">${name}</td>
+                    <td class="border px-4 py-2">${category}</td>
+                    <td class="border px-4 py-2">${stock}</td>
+                    <td class="border px-4 py-2">${price}</td>
+                    <td class="border px-4 py-2">
+                        <button onclick="openEditForm(this)" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Edit</button>
+                        <button onclick="deleteProduct(this)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                    </td>
+                `;
+            }
+
+            closeForm();
+        });
+
+        // Delete Product
+        function deleteProduct(button) {
+            const row = button.closest('tr');
+            row.remove();
+        }
+    </script>
 </body>
 
 </html>
