@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,admin templates, admin template, admin dashboard, free tailwind templates, tailwind example">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Products | Store Management</title>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <aside class="fixed top-0 left-0 w-64 bg-gray-800 text-white h-full z-10">
+        <div class="p-4">
+            <h1 class="text-lg font-bold">Store Admin</h1>
+        </div>
+        <nav class="mt-6">
+            <ul class="space-y-2">
+                <li><a href="index.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Dashboard</a></li>
+                <li><a href="orders.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Orders</a></li>
+                <li><a href="products.html" class="block px-4 py-2 hover:bg-gray-700 rounded bg-gray-700">Products</a></li>
+                <li><a href="categories.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Categories</a></li>
+                <li><a href="reports.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Reports</a></li>
+                <li><a href="settings.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="ml-64">
+        <!-- Header -->
+        <header class="bg-white shadow p-4 fixed top-0 left-64 right-0 z-10">
+            <div class="flex justify-between items-center">
+                <h1 class="text-lg font-bold">Products</h1>
+                <div class="flex items-center space-x-4">
+                    <img src="./dist/images/random-admin.jpg" alt="Admin Profile" class="w-8 h-8 rounded-full">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Section -->
+        <main class="p-6 mt-16 mb-16">
+            <!-- Products Table -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-semibold mb-4">Products List</h3>
+                <div class="overflow-x-auto">
+                    <table class="table-auto w-full text-left border-collapse">
+                        <thead class="bg-gray-200">
+                            <tr>
+                                <th class="px-4 py-2">Product ID</th>
+                                <th class="px-4 py-2">Name</th>
+                                <th class="px-4 py-2">Category</th>
+                                <th class="px-4 py-2">Stock</th>
+                                <th class="px-4 py-2">Price</th>
+                                <th class="px-4 py-2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border px-4 py-2">#P001</td>
+                                <td class="border px-4 py-2">Product A</td>
+                                <td class="border px-4 py-2">Category 1</td>
+                                <td class="border px-4 py-2">50</td>
+                                <td class="border px-4 py-2">$25.00</td>
+                                <td class="border px-4 py-2">
+                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Edit</button>
+                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border px-4 py-2">#P002</td>
+                                <td class="border px-4 py-2">Product B</td>
+                                <td class="border px-4 py-2">Category 2</td>
+                                <td class="border px-4 py-2">30</td>
+                                <td class="border px-4 py-2">$15.00</td>
+                                <td class="border px-4 py-2">
+                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Edit</button>
+                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border px-4 py-2">#P003</td>
+                                <td class="border px-4 py-2">Product C</td>
+                                <td class="border px-4 py-2">Category 3</td>
+                                <td class="border px-4 py-2">20</td>
+                                <td class="border px-4 py-2">$10.00</td>
+                                <td class="border px-4 py-2">
+                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Edit</button>
+                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white shadow p-4 fixed bottom-0 left-64 right-0 z-10">
+            <p class="text-center text-gray-500 text-sm">&copy; 2025 Store Admin. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,admin templates, admin template, admin dashboard, free tailwind templates, tailwind example">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Orders | Store Management</title>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <aside class="fixed top-0 left-0 w-64 bg-gray-800 text-white h-full z-10">
+        <div class="p-4">
+            <h1 class="text-lg font-bold">Store Admin</h1>
+        </div>
+        <nav class="mt-6">
+            <ul class="space-y-2">
+                <li><a href="index.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Dashboard</a></li>
+                <li><a href="orders.html" class="block px-4 py-2 hover:bg-gray-700 rounded bg-gray-700">Orders</a></li>
+                <li><a href="products.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Products</a></li>
+                <li><a href="categories.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Categories</a></li>
+                <li><a href="reports.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Reports</a></li>
+                <li><a href="settings.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="ml-64">
+        <!-- Header -->
+        <header class="bg-white shadow p-4 fixed top-0 left-64 right-0 z-10">
+            <div class="flex justify-between items-center">
+                <h1 class="text-lg font-bold">Orders</h1>
+                <div class="flex items-center space-x-4">
+                    <img src="./dist/images/random-admin.jpg" alt="Admin Profile" class="w-8 h-8 rounded-full">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Section -->
+        <main class="p-6 mt-16 mb-16">
+            <!-- Orders Table -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-semibold mb-4">Orders List</h3>
+                <div class="overflow-x-auto">
+                    <table class="table-auto w-full text-left border-collapse">
+                        <thead class="bg-gray-200">
+                            <tr>
+                                <th class="px-4 py-2">Order ID</th>
+                                <th class="px-4 py-2">Customer</th>
+                                <th class="px-4 py-2">Date</th>
+                                <th class="px-4 py-2">Status</th>
+                                <th class="px-4 py-2">Total</th>
+                                <th class="px-4 py-2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border px-4 py-2">#1001</td>
+                                <td class="border px-4 py-2">John Doe</td>
+                                <td class="border px-4 py-2">2025-04-28</td>
+                                <td class="border px-4 py-2 text-green-500">Completed</td>
+                                <td class="border px-4 py-2">$120.00</td>
+                                <td class="border px-4 py-2">
+                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
+                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border px-4 py-2">#1002</td>
+                                <td class="border px-4 py-2">Jane Smith</td>
+                                <td class="border px-4 py-2">2025-04-27</td>
+                                <td class="border px-4 py-2 text-yellow-500">Pending</td>
+                                <td class="border px-4 py-2">$80.00</td>
+                                <td class="border px-4 py-2">
+                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
+                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border px-4 py-2">#1003</td>
+                                <td class="border px-4 py-2">Alice Brown</td>
+                                <td class="border px-4 py-2">2025-04-26</td>
+                                <td class="border px-4 py-2 text-red-500">Cancelled</td>
+                                <td class="border px-4 py-2">$50.00</td>
+                                <td class="border px-4 py-2">
+                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
+                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white shadow p-4 fixed bottom-0 left-64 right-0 z-10">
+            <p class="text-center text-gray-500 text-sm">&copy; 2025 Store Admin. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

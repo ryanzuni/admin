@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,admin templates, admin template, admin dashboard, free tailwind templates, tailwind example">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Settings | Store Management</title>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <aside class="fixed top-0 left-0 w-64 bg-gray-800 text-white h-full z-10">
+        <div class="p-4">
+            <h1 class="text-lg font-bold">Store Admin</h1>
+        </div>
+        <nav class="mt-6">
+            <ul class="space-y-2">
+                <li><a href="index.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Dashboard</a></li>
+                <li><a href="orders.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Orders</a></li>
+                <li><a href="products.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Products</a></li>
+                <li><a href="categories.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Categories</a></li>
+                <li><a href="reports.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Reports</a></li>
+                <li><a href="settings.html" class="block px-4 py-2 hover:bg-gray-700 rounded bg-gray-700">Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="ml-64">
+        <!-- Header -->
+        <header class="bg-white shadow p-4 fixed top-0 left-64 right-0 z-10">
+            <div class="flex justify-between items-center">
+                <h1 class="text-lg font-bold">Settings</h1>
+                <div class="flex items-center space-x-4">
+                    <img src="./dist/images/random-admin.jpg" alt="Admin Profile" class="w-8 h-8 rounded-full">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Section -->
+        <main class="p-6 mt-16 mb-16">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-semibold mb-4">Account Settings</h3>
+                <form action="#" method="POST" class="space-y-4">
+                    <!-- Name -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter a new password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div>
+                        <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your new password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white shadow p-4 fixed bottom-0 left-64 right-0 z-10">
+            <p class="text-center text-gray-500 text-sm">&copy; 2025 Store Admin. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

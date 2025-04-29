@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,admin templates, admin template, admin dashboard, free tailwind templates, tailwind example">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Reports | Store Management</title>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <aside class="fixed top-0 left-0 w-64 bg-gray-800 text-white h-full z-10">
+        <div class="p-4">
+            <h1 class="text-lg font-bold">Store Admin</h1>
+        </div>
+        <nav class="mt-6">
+            <ul class="space-y-2">
+                <li><a href="index.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Dashboard</a></li>
+                <li><a href="orders.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Orders</a></li>
+                <li><a href="products.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Products</a></li>
+                <li><a href="categories.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Categories</a></li>
+                <li><a href="reports.html" class="block px-4 py-2 hover:bg-gray-700 rounded bg-gray-700">Reports</a></li>
+                <li><a href="settings.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="ml-64">
+        <!-- Header -->
+        <header class="bg-white shadow p-4 fixed top-0 left-64 right-0 z-10">
+            <div class="flex justify-between items-center">
+                <h1 class="text-lg font-bold">Reports</h1>
+                <div class="flex items-center space-x-4">
+                    <img src="./dist/images/random-admin.jpg" alt="Admin Profile" class="w-8 h-8 rounded-full">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Section -->
+        <main class="p-6 mt-16 mb-16">
+            <!-- Total Reports -->
+            <div class="bg-blue-500 text-white rounded-lg p-6 shadow-md mb-6">
+                <h2 class="text-2xl font-bold">Total Reports</h2>
+                <p class="text-lg mt-2">3 Reports Available</p>
+            </div>
+
+            <!-- Generate Report Button -->
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">Reports List</h3>
+                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Generate Report
+                </button>
+            </div>
+
+            <!-- Reports Table -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="overflow-x-auto">
+                    <table class="table-auto w-full text-left border-collapse">
+                        <thead class="bg-gray-200">
+                            <tr>
+                                <th class="px-4 py-2">Report ID</th>
+                                <th class="px-4 py-2">Title</th>
+                                <th class="px-4 py-2">Date</th>
+                                <th class="px-4 py-2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border px-4 py-2">#R001</td>
+                                <td class="border px-4 py-2">Monthly Sales</td>
+                                <td class="border px-4 py-2">2025-04-01</td>
+                                <td class="border px-4 py-2">
+                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
+                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border px-4 py-2">#R002</td>
+                                <td class="border px-4 py-2">Inventory Report</td>
+                                <td class="border px-4 py-2">2025-04-10</td>
+                                <td class="border px-4 py-2">
+                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
+                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border px-4 py-2">#R003</td>
+                                <td class="border px-4 py-2">Customer Feedback</td>
+                                <td class="border px-4 py-2">2025-04-15</td>
+                                <td class="border px-4 py-2">
+                                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
+                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white shadow p-4 fixed bottom-0 left-64 right-0 z-10">
+            <p class="text-center text-gray-500 text-sm">&copy; 2025 Store Admin. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
