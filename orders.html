@@ -110,6 +110,31 @@
             const row = button.closest('tr');
             row.remove();
         }
+        
+    // Load orders from localStorage
+    function loadOrders() {
+        const orders = JSON.parse(localStorage.getItem('orders')) || [];
+        const tableBody = document.querySelector('#ordersTable tbody');
+
+        orders.forEach(order => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td class="border px-4 py-2">${order.id}</td>
+                <td class="border px-4 py-2">${order.customer}</td>
+                <td class="border px-4 py-2">${order.date}</td>
+                <td class="border px-4 py-2 text-${order.status === 'Completed' ? 'green' : order.status === 'Cancelled' ? 'red' : 'yellow'}-500">${order.status}</td>
+                <td class="border px-4 py-2">${order.total}</td>
+                <td class="border px-4 py-2">
+                    <button onclick="viewOrder(this)" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
+                    <button onclick="deleteOrder(this)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    // Call loadOrders on page load
+    document.addEventListener('DOMContentLoaded', loadOrders);
     </script>
 </body>
 

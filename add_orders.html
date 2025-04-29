@@ -11,38 +11,104 @@
 </head>
 
 <body class="bg-gray-100">
-    <!-- Main Section -->
-    <div class="flex justify-center items-center h-screen">
-        <div class="bg-white rounded-lg shadow-lg p-6 w-96">
-            <h3 class="text-lg font-semibold mb-4">Add New Order</h3>
-            <form id="addOrderForm" action="orders.html" method="GET">
-                <div class="mb-4">
-                    <label for="customer" class="block text-sm font-medium text-gray-700">Customer Name</label>
-                    <input type="text" id="customer" name="customer" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
-                </div>
-                <div class="mb-4">
-                    <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
-                    <input type="date" id="date" name="date" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
-                </div>
-                <div class="mb-4">
-                    <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-                    <select id="status" name="status" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                        <option value="Pending">Pending</option>
-                        <option value="Completed">Completed</option>
-                        <option value="Cancelled">Cancelled</option>
-                    </select>
-                </div>
-                <div class="mb-4">
-                    <label for="total" class="block text-sm font-medium text-gray-700">Total</label>
-                    <input type="number" id="total" name="total" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
-                </div>
-                <div class="flex justify-end space-x-4">
-                    <a href="orders.html" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Cancel</a>
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add</button>
-                </div>
-            </form>
+    <!-- Sidebar -->
+    <aside class="fixed top-0 left-0 w-64 bg-gray-800 text-white h-full z-10">
+        <div class="p-4">
+            <h1 class="text-lg font-bold">Store Admin</h1>
         </div>
+        <nav class="mt-6">
+            <ul class="space-y-2">
+                <li><a href="index.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Dashboard</a></li>
+                <li><a href="orders.html" class="block px-4 py-2 hover:bg-gray-700 rounded bg-gray-700">Orders</a></li>
+                <li><a href="products.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Products</a></li>
+                <li><a href="categories.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Categories</a></li>
+                <li><a href="reports.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Reports</a></li>
+                <li><a href="settings.html" class="block px-4 py-2 hover:bg-gray-700 rounded">Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="ml-64">
+        <!-- Header -->
+        <header class="bg-white shadow p-4 fixed top-0 left-64 right-0 z-10">
+            <div class="flex justify-between items-center">
+                <h1 class="text-lg font-bold">Add Order</h1>
+                <div class="flex items-center space-x-4">
+                    <img src="./dist/images/random-admin.jpg" alt="Admin Profile" class="w-8 h-8 rounded-full">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Section -->
+        <main class="p-6 mt-16 mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-lg font-semibold mb-4">Add New Order</h3>
+                <form id="addOrderForm">
+                    <div class="mb-4">
+                        <label for="customer" class="block text-sm font-medium text-gray-700">Customer Name</label>
+                        <input type="text" id="customer" name="customer" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
+                        <input type="date" id="date" name="date" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+                        <select id="status" name="status" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                            <option value="Pending">Pending</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="total" class="block text-sm font-medium text-gray-700">Total</label>
+                        <input type="number" id="total" name="total" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div class="flex justify-end space-x-4">
+                        <a href="orders.html" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Cancel</a>
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white shadow p-4 fixed bottom-0 left-64 right-0 z-10">
+            <p class="text-center text-gray-500 text-sm">&copy; 2025 Store Admin. All rights reserved.</p>
+        </footer>
     </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('addOrderForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const customer = document.getElementById('customer').value;
+            const date = document.getElementById('date').value;
+            const status = document.getElementById('status').value;
+            const total = document.getElementById('total').value;
+
+            // Prepare order data
+            const orderData = {
+                id: `#${Math.floor(Math.random() * 10000)}`,
+                customer,
+                date,
+                status,
+                total: `$${parseFloat(total).toFixed(2)}`
+            };
+
+            // Save order data to localStorage
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            orders.push(orderData);
+            localStorage.setItem('orders', JSON.stringify(orders));
+
+            // Redirect to orders.html
+            window.location.href = 'orders.html';
+        });
+    </script>
 </body>
 
 </html>
